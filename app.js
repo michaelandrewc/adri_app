@@ -50,41 +50,38 @@ async function getSheetCell(sheetName, cell) {
 
 async function loadSheetInformation() {
     try {
-        // First sheet: A199
-        const firstValue =
-            await getSheetCell("firstSheet", "A199");
+        const [
+            firstValue,
+            secondValueB2,
+            secondValueC2,
+            secondValueD2,
+            moodRawValue
+        ] = await Promise.all([
+            getSheetCell("firstSheet", "A199"),
+            getSheetCell("secondSheet", "B2"),
+            getSheetCell("secondSheet", "C2"),
+            getSheetCell("secondSheet", "D2"),
+            getSheetCell("secondSheet", "A2")
+        ]);
 
+        // A199
         document.getElementById("sheet-value").textContent =
             firstValue;
 
-
-        // Second sheet: B2
-        const secondValueB2 =
-            await getSheetCell("secondSheet", "B2");
-
+        // B2
         document.getElementById("sheet-value-2").textContent =
             secondValueB2;
 
-
-        // Second sheet: C2
-        const secondValueC2 =
-            await getSheetCell("secondSheet", "C2");
-
+        // C2
         document.getElementById("sheet-value-c2").textContent =
             secondValueC2;
 
-
-        // Second sheet: D2
-        const secondValueD2 =
-            await getSheetCell("secondSheet", "D2");
-
+        // D2
         document.getElementById("sheet-value-d2").textContent =
             secondValueD2;
 
-
-        // Second sheet: A2
-        const moodValue =
-            parseInt(await getSheetCell("secondSheet", "A2"), 10);
+        // A2 mood
+        const moodValue = parseInt(moodRawValue, 10);
 
         const moodImages = {
             1: "moods/awful.png",
@@ -100,8 +97,9 @@ async function loadSheetInformation() {
         if (moodImages[moodValue]) {
             moodImage.src = moodImages[moodValue];
             moodImage.alt = `Mood level ${moodValue}`;
-        } else {
-            console.error("Unexpected mood value:", moodValue);
+
+            // Make sure the image itself has finished loading.
+            await moodImage.decode().catch(() => {});
         }
 
     } catch (error) {
@@ -113,5 +111,26 @@ async function loadSheetInformation() {
 // START APP
 // -------------------------
 
-loadInformation();
-loadSheetInformation();
+async function startApp() {
+    try {
+        await Promise.all([
+            loadInformation(),
+            loadSheetInformation()
+        ]);
+    } catch (error) {
+        console.error("App startup error:", error);
+    } finally {
+        document
+            .getElementById("loading-screen")
+            .classList.add("hidden");
+
+        document
+            .getElementById("app")
+            .classList.remove("app-loading");
+    }
+}
+
+startApp();
+
+// Re-check Google Sheets every 60 seconds
+setInterval(loadSheetInformation, 60 * 1000);

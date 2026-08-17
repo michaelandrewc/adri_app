@@ -18,8 +18,12 @@
 </head>
 
 <body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
 
-    <main class="app">
+    <main class="app app-loading" id="app">
 
         <header class="app-header">
             <h1 id="title">Loading...</h1>
@@ -28,94 +32,90 @@
         </header>
 
 
-        <!-- FIRST SHEET -->
+    <!-- FIRST SHEET -->
 
-        <article class="info-card">
+    <article class="info-card">
 
-            <div class="card-icon">
-                $
-            </div>
+        <div class="card-icon">
+            $
+        </div>
 
-            <div class="card-content">
-                <h2>First Google Sheet Value</h2>
-                <p id="sheet-value">Loading...</p>
-            </div>
+        <div class="card-content">
+            <h2>First Google Sheet Value</h2>
+            <p id="sheet-value">Loading...</p>
+        </div>
 
-        </article>
-
-
-        <!-- SECOND SHEET B2 -->
-
-        <article class="info-card">
-
-            <div class="card-icon">
-                B2
-            </div>
-
-            <div class="card-content">
-                <h2>Second Google Sheet Value</h2>
-                <p id="sheet-value-2">Loading...</p>
-            </div>
-
-        </article>
+    </article>
 
 
-        <!-- SECOND SHEET C2 -->
+    <!-- CURRENT MOOD -->
 
-        <article class="info-card">
+    <article class="info-card">
 
-            <div class="card-icon">
-                C2
-            </div>
+        <div class="card-icon">
+            A2
+        </div>
 
-            <div class="card-content">
-                <h2>C2 Value</h2>
-                <p id="sheet-value-c2">Loading...</p>
-            </div>
+        <div class="card-content">
+            <h2>Current Mood</h2>
 
-        </article>
+            <img
+                id="mood-image"
+                src=""
+                alt="Current mood"
+                class="mood-image"
+            >
+        </div>
 
-
-        <!-- SECOND SHEET D2 -->
-
-        <article class="info-card">
-
-            <div class="card-icon">
-                D2
-            </div>
-
-            <div class="card-content">
-                <h2>D2 Value</h2>
-                <p id="sheet-value-d2">Loading...</p>
-            </div>
-
-        </article>
+    </article>
 
 
-        <!-- MOOD -->
+    <!-- SECOND SHEET B2 -->
 
-      <!-- MOOD -->
+    <article class="info-card">
 
-        <article class="info-card">
+        <div class="card-icon">
+            B2
+        </div>
 
-            <div class="card-icon">
-                A2
-            </div>
+        <div class="card-content">
+            <h2>Second Google Sheet Value</h2>
+            <p id="sheet-value-2">Loading...</p>
+        </div>
 
-            <div class="card-content">
-                <h2>Current Mood</h2>
+    </article>
 
-                <img
-                    id="mood-image"
-                    src=""
-                    alt="Current mood"
-                    class="mood-image"
-                >
-            </div>
 
-        </article>
+    <!-- SECOND SHEET C2 -->
 
-    </main>
+    <article class="info-card">
+
+        <div class="card-icon">
+            C2
+        </div>
+
+        <div class="card-content">
+            <h2>C2 Value</h2>
+            <p id="sheet-value-c2">Loading...</p>
+        </div>
+
+    </article>
+
+
+    <!-- SECOND SHEET D2 -->
+
+    <article class="info-card">
+
+        <div class="card-icon">
+            D2
+        </div>
+
+        <div class="card-content">
+            <h2>D2 Value</h2>
+            <p id="sheet-value-d2">Loading...</p>
+        </div>
+
+    </article>
 
     <script src="app.js"></script>
 
