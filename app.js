@@ -66,8 +66,7 @@ async function loadSheetInformation() {
 
         // A199
         document.getElementById("sheet-value").textContent =
-            firstValue;
-
+    firstValue.replaceAll('"', '');
         // B2
         document.getElementById("sheet-value-2").textContent =
             secondValueB2;

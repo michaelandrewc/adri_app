@@ -1,18 +1,5 @@
 {
-    "title": "My Information",
-    "description": "This information is coming from a separate data file.",
-    "items": [
-        {
-            "name": "First Item",
-            "description": "This is the first piece of information."
-        },
-        {
-            "name": "Second Item",
-            "description": "This is the second piece of information."
-        },
-        {
-            "name": "Third Item",
-            "description": "This is the third piece of information."
-        }
-    ]
+    "title": "Miss' Dashboard",
+    "description": "See how your slave is currently doing!"
 }
+  
