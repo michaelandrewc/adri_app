@@ -9,7 +9,7 @@
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     >
 
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#061b3a">
 
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
@@ -21,40 +21,99 @@
 
     <main class="app">
 
-     <header class="app-header">
-        <h1 id="title">Loading...</h1>
-        <p id="description"></p>
-    </header>
+        <header class="app-header">
+            <h1 id="title">Loading...</h1>
+            <p id="description"></p>
+            <div class="header-accent"></div>
+        </header>
 
-    <article class="item-card">
-        <h2>First Google Sheet Value</h2>
-        <p id="sheet-value">Loading...</p>
-    </article>
 
-    <article class="item-card">
-        <h2>Second Google Sheet Value</h2>
-        <p id="sheet-value-2">Loading...</p>
-    </article>
-    
-    <article class="item-card">
-        <h2>C2 Value</h2>
-        <p id="sheet-value-c2">Loading...</p>
-    </article>
+        <!-- FIRST SHEET -->
 
-    <article class="item-card">
-        <h2>D2 Value</h2>
-        <p id="sheet-value-d2">Loading...</p>
-    </article>
+        <article class="info-card">
 
-    <article class="item-card">
-        <h2>Current Mood</h2>
-        <img
-            id="mood-image"
-            src=""
-            alt="Current mood"
-            class="mood-image"
-        >
-    </article>
+            <div class="card-icon">
+                $
+            </div>
+
+            <div class="card-content">
+                <h2>First Google Sheet Value</h2>
+                <p id="sheet-value">Loading...</p>
+            </div>
+
+        </article>
+
+
+        <!-- SECOND SHEET B2 -->
+
+        <article class="info-card">
+
+            <div class="card-icon">
+                B2
+            </div>
+
+            <div class="card-content">
+                <h2>Second Google Sheet Value</h2>
+                <p id="sheet-value-2">Loading...</p>
+            </div>
+
+        </article>
+
+
+        <!-- SECOND SHEET C2 -->
+
+        <article class="info-card">
+
+            <div class="card-icon">
+                C2
+            </div>
+
+            <div class="card-content">
+                <h2>C2 Value</h2>
+                <p id="sheet-value-c2">Loading...</p>
+            </div>
+
+        </article>
+
+
+        <!-- SECOND SHEET D2 -->
+
+        <article class="info-card">
+
+            <div class="card-icon">
+                D2
+            </div>
+
+            <div class="card-content">
+                <h2>D2 Value</h2>
+                <p id="sheet-value-d2">Loading...</p>
+            </div>
+
+        </article>
+
+
+        <!-- MOOD -->
+
+      <!-- MOOD -->
+
+        <article class="info-card">
+
+            <div class="card-icon">
+                A2
+            </div>
+
+            <div class="card-content">
+                <h2>Current Mood</h2>
+
+                <img
+                    id="mood-image"
+                    src=""
+                    alt="Current mood"
+                    class="mood-image"
+                >
+            </div>
+
+        </article>
 
     </main>
 
