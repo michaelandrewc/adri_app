@@ -73,11 +73,42 @@ async function loadSheetInformation() {
 
         // C2
         document.getElementById("sheet-value-c2").textContent =
-            secondValueC2;
+                secondValueC2;
+
+            const cageButton =
+                document.getElementById("cage-button");
+
+            if (secondValueC2.trim().toLowerCase() === "yes") {
+
+                cageButton.textContent = "Unlock Him";
+                cageButton.dataset.signal = "unlock";
+
+            } else {
+
+                cageButton.textContent = "Cage Him";
+                cageButton.dataset.signal = "cage";
+
+            }
 
         // D2
+        // D2 - Busy status
         document.getElementById("sheet-value-d2").textContent =
             secondValueD2;
+
+        const taskButton =
+            document.getElementById("task-button");
+
+        if (secondValueD2.trim().toLowerCase() === "yes") {
+
+            taskButton.textContent = "Encourage";
+            taskButton.dataset.signal = "encourage";
+
+        } else {
+
+            taskButton.textContent = "Make Work";
+            taskButton.dataset.signal = "make_work";
+
+}
 
         // A2 mood
         const moodValue = parseInt(moodRawValue, 10);
@@ -130,6 +161,54 @@ async function startApp() {
 }
 
 startApp();
+// -------------------------
+// SIGNAL BUTTONS
+// -------------------------
 
+const SIGNAL_URL =
+    "https://script.google.com/macros/s/AKfycbw0N34hSBE-_SulqVe82qXG9co8HlWTciegJmxtZY5fDtpjiLl00oH4M-Ojn2YZoeO3FQ/exec";
+
+
+async function sendSignal(button) {
+
+    const signal = button.dataset.signal;
+    const originalText = button.textContent;
+
+    try {
+        button.disabled = true;
+        button.textContent = "Sending...";
+
+        await fetch(SIGNAL_URL, {
+            method: "POST",
+            body: JSON.stringify({
+                signal: signal
+            })
+        });
+
+        button.textContent = "Sent ✓";
+
+    } catch (error) {
+        console.error("Could not send signal:", error);
+
+        button.textContent = "Failed";
+    }
+
+    setTimeout(() => {
+        button.disabled = false;
+        button.textContent = originalText;
+    }, 2000);
+}
+
+
+// Give every signal button a click listener
+document
+    .querySelectorAll(".signal-button")
+    .forEach(button => {
+
+        button.addEventListener("click", function () {
+            sendSignal(button);
+        });
+
+    });
 // Re-check Google Sheets every 60 seconds
 setInterval(loadSheetInformation, 60 * 1000);
