@@ -356,3 +356,87 @@ body {
     }
 }
 
+/* -------------------------
+   CARD INFO MODAL
+------------------------- */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(2, 12, 30, 0.72);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.modal-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 420px;
+
+    padding: 26px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b356c,
+            #071f48
+        );
+
+    border: 1px solid rgba(44, 154, 255, 0.35);
+
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.modal-content h2 {
+    margin: 0 36px 12px 0;
+
+    font-size: 24px;
+}
+
+.modal-content p {
+    margin: 0;
+
+    color: #a8c5e3;
+
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+
+    border: none;
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+}

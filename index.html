@@ -34,7 +34,11 @@
 
     <!-- FIRST SHEET -->
 
-    <article class="info-card">
+     <article 
+        class="info-card"
+        data-title="Total Sends"
+        data-description="This is how much money your slave has sent you so far. If you want more, just click the button!">
+
 
         <div class="card-content">
             <h2>Total Sends</h2>
@@ -57,8 +61,10 @@
 
     <!-- CURRENT MOOD -->
 
-    <article class="info-card">
-
+    <article 
+        class="info-card"
+        data-title="Current Arousal"
+        data-description="This shows your slave's current mood - updated 3 times a day be default. Send an insult if he's feeling too good!">
 
         <div class="card-content">
             <h2>Current Mood</h2>
@@ -86,7 +92,11 @@
 
     <!-- SECOND SHEET B2 -->
 
-    <article class="info-card">
+     <article 
+        class="info-card"
+        data-title="Current Arousal"
+        data-description="This shows how turned on your slave is right now. 🙂 is the lowest and the more 🥵 the more aroused he is - tease him if he's not horny enough!">
+
 
         <div class="card-content">
             <h2>Current Arousal</h2>
@@ -106,7 +116,10 @@
 
     <!-- SECOND SHEET C2 -->
 
-    <article class="info-card">
+    <article 
+        class="info-card"
+        data-title="Is Slave Caged?"
+        data-description="This shows whether your slave is currently caged or not. Lock him up or free him!">
 
         <div class="card-content">
             <h2>Is Slave Caged?</h2>
@@ -128,25 +141,40 @@
 
     <!-- SECOND SHEET D2 -->
 
-    <article class="info-card">
-
+    <article
+        class="info-card"
+        data-title="Is Slave Busy?"
+        data-description="This shows whether your slave is currently is busy with work on an appointment. Make him work or send him encouragement!"
+    >
         <div class="card-content">
             <h2>Is Slave Busy?</h2>
             <p id="sheet-value-d2">Loading...</p>
         </div>
 
         <div class="button-area">
-           <!-- BUSY BUTTON -->
             <button
                 class="card-button signal-button"
                 id="task-button"
-                data-signal="give_task">
+                data-signal="make_work"
+            >
                 Make Work
             </button>
         </div>
-
     </article>
 
+    </main>
+
+    <div id="info-modal" class="modal hidden">
+
+    <div class="modal-backdrop"></div>
+
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close">×</button>
+
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
     <script src="app.js"></script>
 
 </body>

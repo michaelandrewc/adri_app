@@ -199,6 +199,50 @@ async function sendSignal(button) {
     }, 2000);
 }
 
+// -------------------------
+// CARD INFO POPUP
+// -------------------------
+
+const modal = document.getElementById("info-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const modalClose = document.getElementById("modal-close");
+
+
+document
+    .querySelectorAll(".info-card")
+    .forEach(card => {
+
+        card.addEventListener("click", function (event) {
+
+            // If the user clicked a button,
+            // do NOT open the popup.
+            if (event.target.closest("button")) {
+                return;
+            }
+
+            modalTitle.textContent =
+                card.dataset.title || "";
+
+            modalDescription.textContent =
+                card.dataset.description || "";
+
+            modal.classList.remove("hidden");
+        });
+
+    });
+
+
+function closeModal() {
+    modal.classList.add("hidden");
+}
+
+
+modalClose.addEventListener("click", closeModal);
+
+modal
+    .querySelector(".modal-backdrop")
+    .addEventListener("click", closeModal);
 
 // Give every signal button a click listener
 document
