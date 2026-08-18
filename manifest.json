@@ -1,9 +1,20 @@
 {
-    "name": "My App",
-    "short_name": "My App",
-    "start_url": ".",
+    "name": "Miss' Dashboard",
+    "short_name": "Miss' Toy",
+    "start_url": "./",
     "display": "standalone",
-    "background_color": "#f5f5f7",
-    "theme_color": "#ffffff",
-    "icons": []
+    "background_color": "#061b3a",
+    "theme_color": "#061b3a",
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
 }
